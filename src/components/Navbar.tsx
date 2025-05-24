@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
     }
 
     return (
-        <div className="relative flex items-center p-1 w-[100%] h-[80px] md:h-[100px] bg-blue-500 bg-opacity-70 font-sans">
+        <div className="relative flex items-center p-1 w-[100%] h-[80px] md:h-[100px] bg-blue-500 bg-opacity-70" style={{fontFamily: 'var(--font-fredericka)'}}>
             <div className="flex justify-between items-center w-[100%] max-w-5xl mx-auto">
                 <div className="text-2xl text-white">
                     Ta Daa!

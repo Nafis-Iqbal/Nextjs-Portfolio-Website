@@ -1,8 +1,3 @@
-import Image from "next/image";
-
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
 import HeroSection from "@/content/HeroSection";
 import ProjectLinks from "@/content/ProjectLinks";
 import Skills from "@/content/Skills";

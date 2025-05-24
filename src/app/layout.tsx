@@ -17,7 +17,6 @@ const fredericka = Fredericka_the_Great({
 });
 
 const rubik = Rubik({
-  weight: "400",
   variable: "--font-rubik",
   subsets: ["latin"],
 });
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${ubuntu.className} light`}>
+    <html lang="en" className={`${ubuntu.className} ${fredericka.variable} light`}>
       <body className="bg-white">
         <header>
          <nav>

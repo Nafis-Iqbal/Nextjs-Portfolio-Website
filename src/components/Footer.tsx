@@ -1,13 +1,12 @@
 "use client";
 
-import SocialLinks from "./SocialIcons";
 import { Github, Linkedin } from "lucide-react";
 
 import DivGap, {HorizontalDivider, VerticalDivider} from "./UIUtilities";
 
 const Footer: React.FC = () => {
     return (
-        <div className="flex flex-col bg-blue-500 opacity-70">
+        <div className="flex flex-col bg-blue-500 opacity-70" style={{fontFamily: 'var(--font-fredericka)'}}>
             <DivGap/>
 
             <div className="flex flex-col md:flex-row p-1">
