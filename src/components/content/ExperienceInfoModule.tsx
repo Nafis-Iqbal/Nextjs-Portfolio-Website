@@ -1,12 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 import { ChevronDown, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import BasicButton from "@/components/structural-elements/Buttons";
 
-const ExperienceInfoModule = ({jobTitle, companyName, jobTenure, jobLocation, description} : {jobTitle: string, companyName: string, jobTenure: string, jobLocation?: string, description: string}) => {
+interface ExperienceInfoProps {
+    jobTitle: string;
+    companyName: string;
+    jobTenure: string;
+    jobLocation?: string;
+    description: ReactNode;
+}
+
+const ExperienceInfoModule = ({jobTitle, companyName, jobTenure, jobLocation, description} : ExperienceInfoProps) => {
     const [isInfoExpanded, setIsInfoExpanded] = useState<boolean>(false);
 
     const onDropDownClicked = () => {
@@ -68,7 +76,7 @@ const ExperienceInfoModule = ({jobTitle, companyName, jobTenure, jobLocation, de
                         className="overflow-hidden mt-4"
                     >
                         <div className="border-t border-gray-700 pt-4">
-                            <p className="text-gray-300">{description}</p>
+                            <div className="text-gray-300">{description}</div>
                         </div>
                     </motion.div>
                 )}

@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Github, Linkedin, Menu, X } from "lucide-react";
 import BasicButton from "./Buttons";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaBriefcase, FaHome, FaLaptopCode, FaRegLightbulb, FaTools } from "react-icons/fa";
 
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,9 +24,32 @@ const Navbar: React.FC = () => {
             style={{fontFamily: 'var(--font-fredericka)'}}
         >
             <div className="relative flex justify-between items-center w-full max-w-7xl mx-auto">
-                <div className="text-2xl font-bold text-emerald-400">
-                    Nafis Iqbal
+                <div className="flex space-x-10 items-center">
+                    <a
+                        href="https://github.com/Nafis-Iqbal"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden md:block p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110"
+                        aria-label="GitHub Profile"
+                    >
+                        <Github size={24} />
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/in/nafis-iqbal-79b645213/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden md:block p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110"
+                        aria-label="LinkedIn Profile"
+                    >
+                        <Linkedin size={24} />
+                    </a>
+
+                    <div className="text-2xl md:text-3xl font-bold text-emerald-400">
+                        Nafis Iqbal
+                    </div>
                 </div>
+                
                 
                 <BasicButton 
                     buttonColor="bg-emerald-600 hover:bg-emerald-500" 
@@ -39,9 +63,9 @@ const Navbar: React.FC = () => {
                 <AnimatePresence>
                     {isMenuOpen && (
                         <motion.div 
-                            className="absolute top-full right-4 flex flex-col md:hidden bg-gray-800 border border-gray-700 rounded-lg shadow-lg overflow-hidden"
+                            className="absolute top-full right-0 flex flex-col md:hidden bg-gray-800 border border-gray-700 rounded-lg shadow-lg overflow-hidden"
                             initial={{ opacity: 0, y: "-100%", x: "10%" }}
-                            animate={{ opacity: 1, y: "0%", x: "10%" }}
+                            animate={{ opacity: 1, y: "5%", x: "10%" }}
                             exit={{ opacity: 0, y: "-100%", x: "10%" }}
                         >
                             <a 
@@ -83,12 +107,34 @@ const Navbar: React.FC = () => {
                     )}
                 </AnimatePresence>
 
-                <div className="hidden md:flex space-x-4 lg:space-x-8 items-center text-lg text-white">
-                    <a className="hover:text-emerald-400 transition-colors duration-300 whitespace-nowrap" href="#hero">Home</a>
-                    <a className="hover:text-emerald-400 transition-colors duration-300 whitespace-nowrap" href="#experience">Experience</a>
-                    <a className="hover:text-emerald-400 transition-colors duration-300 whitespace-nowrap" href="#projects">Projects</a>
-                    <a className="hover:text-emerald-400 transition-colors duration-300 whitespace-nowrap" href="#skills">Skills</a>
-                    <a className="hover:text-emerald-400 transition-colors duration-300 whitespace-nowrap" href="#interests">Future Plans</a> 
+                <div className="hidden md:flex space-x-15 items-center text-2xl text-white">
+                    <a 
+                        className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110" 
+                        href="#hero"
+                    >
+                        <FaHome/>
+                    </a>
+                    <a 
+                        className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110" 
+                        href="#experience"
+                    >
+                        <FaBriefcase/>
+                    </a>
+                    <a className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110" 
+                        href="#projects"
+                    >
+                        <FaLaptopCode/>
+                    </a>
+                    <a className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110" 
+                        href="#skills"
+                    >
+                        <FaTools/>
+                    </a>
+                    <a className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110" 
+                        href="#interests"
+                    >
+                        <FaRegLightbulb/>
+                    </a>
                 </div>
             </div>
         </div>

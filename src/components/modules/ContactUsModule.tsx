@@ -1,9 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Mail, Send, Check, AlertCircle } from "lucide-react";
+import { motion, useScroll } from "framer-motion";
 import BasicButton from "@/components/structural-elements/Buttons";
 import { handleContactSubmission } from "@/utils/apiConnectors";
+
+// Animation configuration
+const SPRING_CONFIG = {
+    type: "spring" as const,
+    damping: 15,
+    stiffness: 300,
+    mass: 0.8
+};
 
 interface ContactFormData {
     email: string;
@@ -16,6 +25,10 @@ interface FormStatus {
 }
 
 export const ContactUsModule = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isScrollingDown, setIsScrollingDown] = useState(true);
+    const { scrollY } = useScroll();
+    
     const [formData, setFormData] = useState<ContactFormData>({
         email: '',
         message: ''
@@ -23,6 +36,17 @@ export const ContactUsModule = () => {
     
     const [status, setStatus] = useState<FormStatus>({ type: 'idle', message: '' });
     const [emailError, setEmailError] = useState<string>('');
+
+    useEffect(() => {
+        let lastScrollY = scrollY.get();
+        
+        const unsubscribe = scrollY.on("change", (latest) => {
+            setIsScrollingDown(latest > lastScrollY);
+            lastScrollY = latest;
+        });
+
+        return () => unsubscribe();
+    }, [scrollY]);
 
     // Email validation function
     const validateEmail = (email: string): boolean => {
@@ -80,17 +104,27 @@ export const ContactUsModule = () => {
     };
 
     return (
-        <div id="contact" className="w-full bg-gray-900 py-12 px-4 md:px-8">
+        <div 
+            ref={containerRef}
+            id="contact" 
+            className="w-full bg-gray-900 py-12 px-4 md:px-8"
+        >
             <div className="max-w-2xl mx-auto">
-                {/* Minimal Header */}
-                <div className="text-center mb-8">
+                {/* Animated Header */}
+                <motion.div 
+                    className="text-center mb-8"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={isScrollingDown ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, transition: { duration: 0 } }}
+                    transition={SPRING_CONFIG}
+                    viewport={{ margin: "-50px" }}
+                >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3" style={{fontFamily: 'var(--font-fredericka)'}}>
                         Let&apos;s Connect
                     </h2>
                     <p className="text-gray-400 text-sm">
                         Got a project idea? Drop me a quick message! 📧
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Compact Contact Form */}
                 <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 shadow-lg">

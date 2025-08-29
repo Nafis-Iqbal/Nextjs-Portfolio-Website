@@ -19,7 +19,10 @@ const Experience = () => {
                         jobTitle="Software Engineer"
                         companyName="Enosis Solutions"
                         jobTenure="April 2022 - July 2023"
-                        description="Had a great time crafting clean, scalable solutions that made clients say 'wow!' 🔥 Turned complex requirements into elegant code while learning from some seriously talented developers."
+                        description={<p>Worked on a USA based, Home Inspection Service provider software for both <strong>mobile applications</strong> and  
+                                    <strong> web platforms</strong>. The mobile application was fully responsive, and ran on android and ios using <strong>Cordova </strong> 
+                                    ionic cross platform framework. The web platform was built with <strong>reactJS</strong> for frontend, and <strong>laravel </strong> 
+                                    for backend. I worked as a <strong>full stack engineer</strong>, contributing to all aspects of the development process.</p>}
                     />
 
                     <ExperienceInfoModule

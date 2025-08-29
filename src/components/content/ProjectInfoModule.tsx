@@ -12,11 +12,14 @@ interface projectInfoProp {
     projectStatus: string; 
     briefDescription: string;
     detailDescriptionLink: string;
+    onDetailsClick?: () => void;
 }
 
-const ProjectInfoModule = ({projectTitle, projectCategory, techStacksUsed, projectLink, projectStatus, briefDescription, detailDescriptionLink} : projectInfoProp) => {
+const ProjectInfoModule = ({projectTitle, projectCategory, techStacksUsed, projectLink, projectStatus, briefDescription, detailDescriptionLink, onDetailsClick} : projectInfoProp) => {
     const onDetailDescriptionClicked = () => {
-
+        if (onDetailsClick) {
+            onDetailsClick();
+        }
     }
 
     const getStatusColor = (status: string) => {
