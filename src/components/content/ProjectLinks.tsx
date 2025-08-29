@@ -30,7 +30,11 @@ const ProjectLinks = () => {
         return () => unsubscribe();
     }, [scrollY]);
     return (
-        <div ref={containerRef} id="projects" className="flex flex-col w-full min-h-screen bg-gray-900 py-16 px-4 md:px-8">
+        <div 
+            ref={containerRef} 
+            id="projects" 
+            className="flex flex-col w-full bg-gray-900 py-16 px-4 md:px-8 overflow-x-hidden"
+        >
             {/* Section Header */}
             <motion.div 
                 className="text-center mb-16"

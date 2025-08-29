@@ -3,12 +3,11 @@ import ProjectLinks from "@/components/content/ProjectLinks";
 import Skills from "@/components/content/Skills";
 import Experience from "@/components/content/Experience";
 import InterestPlans from "@/components/content/InterestsPlans";
-import { Contact } from "lucide-react";
 import { ContactUsModule } from "@/components/modules/ContactUsModule";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col w-full">
+    <main className="flex flex-col justify-center w-full">
       <HeroSection/>
       <Experience/>
       <ProjectLinks/>

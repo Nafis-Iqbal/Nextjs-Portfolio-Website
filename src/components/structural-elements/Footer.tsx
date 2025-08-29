@@ -10,9 +10,7 @@ const Footer: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4 w-full">
                 <div className="flex flex-col md:flex-row gap-12">
                     {/* Contact & Social Section */}
-                    <div className="flex flex-col w-full md:w-1/2 items-center md:items-start space-y-6">
-                        <h3 className="text-2xl font-bold text-emerald-400 mb-4">Let&apos;s Connect</h3>
-                        
+                    <div className="flex flex-col w-full md:w-1/2 justify-center items-center md:items-start space-y-6">
                         <div className="flex space-x-6">
                             <a
                                 href="https://github.com/Nafis-Iqbal"
@@ -47,9 +45,9 @@ const Footer: React.FC = () => {
                             <p className="text-gray-400 mb-2">Open for opportunities and collaborations</p>
                             <a 
                                 className="text-emerald-400 hover:text-emerald-300 font-semibold text-lg transition-colors" 
-                                href="mailto:nafis.iqbal@example.com"
+                                href="mailto:nafisiqbal10053@gmail.com"
                             >
-                                nafis.iqbal@example.com
+                                nafisiqbal10053@gmail.com
                             </a>
                         </div>
                     </div>
@@ -70,9 +68,12 @@ const Footer: React.FC = () => {
 
                 {/* Bottom Section */}
                 <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-                    <div className="flex items-center justify-center gap-2 text-gray-400 mb-4">
-                        <span>Made with</span>
-                        <Heart size={16} className="text-emerald-400" />
+                    <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 space-x-0 md:space-x-4 items-center justify-center gap-2 text-gray-400 mb-4">
+                        <div className="flex space-x-4 items-center">
+                            <span>Made with</span>
+                            <Heart size={16} className="text-emerald-400" />
+                        </div>
+                        
                         <span>using Next.js, TypeScript & Tailwind CSS</span>
                     </div>
                     <p className="text-gray-500 text-sm">

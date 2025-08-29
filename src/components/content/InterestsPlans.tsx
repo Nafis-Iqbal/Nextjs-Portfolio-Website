@@ -45,7 +45,11 @@ const InterestPlans = () => {
         return () => unsubscribe();
     }, [scrollY]);
     return (
-        <div ref={containerRef} id="interests" className="flex flex-col w-full min-h-screen bg-black py-16 px-4 md:px-8">
+        <div 
+            ref={containerRef} 
+            id="interests" 
+            className="flex flex-col w-full min-h-screen bg-black py-16 px-4 md:px-8 overflow-x-hidden"
+        >
             {/* Section Header */}
             <motion.div 
                 className="text-center mb-16"

@@ -16,45 +16,51 @@ const SPRING_CONFIG = {
 
 const skillData = [
     {
+        skillTitle: "NextJS",
+        skillCategory: "Fullstack Website Development with SEO friendly features.",
+        relevantTechsLearned: "Sequelize, Prisma, Zod",
+        currentlyLearning: "TypeORM, Knex",
+        briefDescription: "Next.js is like React's cooler older sibling! 😎 Full-stack development with server-side rendering that makes Google's crawlers happy and users even happier. Performance that hits different!",
+        backGroundImage: "/FrameworkLogos/NextJSLogo.webp"
+    },
+    {
         skillTitle: "React",
         skillCategory: "Frontend Website Development",
         relevantTechsLearned: "React-Router-Dom, React-Redux, React-Query, Lucide-React, Framer-Motion",
-        briefDescription: "React is my frontend playground! 🚀 Building interactive UIs that users actually love to click around. From smooth state management to buttery animations, I craft digital experiences that make browsers sing."
+        briefDescription: "React is my frontend playground! 🚀 Building interactive UIs that users actually love to click around. From smooth state management to buttery animations, I craft digital experiences that make browsers sing.",
+        backGroundImage: "/FrameworkLogos/ReactLogo.jpg"
     },
     {
         skillTitle: "ExpressJS",
         skillCategory: "Backend Website Development",
         relevantTechsLearned: "Sequelize, Prisma, Zod, Helmet, express-validator, jwtToken",
         currentlyLearning: "TypeORM, Knex",
-        briefDescription: "The backbone of my server-side wizardry! ⚡ Express helps me build APIs so clean they could win a design award. Security, validation, database magic - it's all here, baby!"
-    },
-    {
-        skillTitle: "NextJS",
-        skillCategory: "Fullstack Website Development with SEO friendly features.",
-        relevantTechsLearned: "Sequelize, Prisma, Zod",
-        currentlyLearning: "TypeORM, Knex",
-        briefDescription: "Next.js is like React's cooler older sibling! 😎 Full-stack development with server-side rendering that makes Google's crawlers happy and users even happier. Performance that hits different!"
+        briefDescription: "The backbone of my server-side wizardry! ⚡ Express helps me build APIs so clean they could win a design award. Security, validation, database magic - it's all here, baby!",
+        backGroundImage: "/FrameworkLogos/ExpressJSLogo.png"
     },
     {
         skillTitle: "Laravel",
         skillCategory: "Backend Website Development",
         relevantTechsLearned: "EloquentORM",
         currentlyLearning: "None",
-        briefDescription: "PHP done right! 🎯 Laravel's elegant syntax and powerful features make backend development feel like writing poetry. Eloquent ORM makes database relationships smoother than my pickup lines."
+        briefDescription: "PHP done right! 🎯 Laravel's elegant syntax and powerful features make backend development feel like writing poetry. Eloquent ORM makes database relationships smoother than my pickup lines.",
+        backGroundImage: "/FrameworkLogos/LaravelLogo.webp"
     },
     {
         skillTitle: "Unity3D",
         skillCategory: "Video Games Development",
         relevantTechsLearned: "Animator blending, Physics simulation, Shader Graphs, Level Design, VFX Graphs, UI, Multiplayer with Photon PUN",
         currentlyLearning: "Multiplayer with Bolt, IK manipulation with scripts",
-        briefDescription: "Where dreams become playable reality! 🎮 Unity is my digital canvas for creating worlds that players get lost in. Physics, shaders, multiplayer chaos - I speak fluent game dev!"
+        briefDescription: "Where dreams become playable reality! 🎮 Unity is my digital canvas for creating worlds that players get lost in. Physics, shaders, multiplayer chaos - I speak fluent game dev!",
+        backGroundImage: "/FrameworkLogos/UnityLogo.jpg"
     },
     {
         skillTitle: "Spine",
         skillCategory: "2D Animation",
         relevantTechsLearned: "Animatied complex characters and motions like humanoids, winged dragons, etc.",
         currentlyLearning: "None",
-        briefDescription: "Bringing 2D characters to life with style! ✨ From humanoid warriors to majestic dragons, I animate them all with fluid motions that would make Disney jealous. Pure art in motion!"
+        briefDescription: "Bringing 2D characters to life with style! ✨ From humanoid warriors to majestic dragons, I animate them all with fluid motions that would make Disney jealous. Pure art in motion!",
+        backGroundImage: "/FrameworkLogos/SpineLogo.png"
     }
 ];
 
@@ -75,7 +81,11 @@ const Skills = () => {
     }, [scrollY]);
 
     return (
-        <div ref={containerRef} id="skills" className="flex flex-col w-full min-h-screen bg-black py-16 px-4 md:px-8">
+        <div 
+            ref={containerRef} 
+            id="skills" 
+            className="flex flex-col w-full min-h-screen bg-black py-16 px-4 md:px-8 overflow-x-hidden"
+        >
             {/* Section Header */}
             <motion.div 
                 className="text-center mb-16"

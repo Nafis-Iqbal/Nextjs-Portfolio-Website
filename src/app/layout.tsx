@@ -38,16 +38,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${ubuntu.className} ${fredericka.variable} dark`}>
-      <body className="bg-black text-white antialiased">
-        <header>
-         <nav>
+      <body className="flex flex-col w-full bg-black text-white antialiased">
+        <header className="">
+         <nav className="">
            <Navbar/> 
          </nav> 
         </header>
 
           {children}
         
-        <footer className="flex flex-wrap items-center justify-center bg-gray-900 border-t border-gray-800">
+        <footer className="w-full flex flex-wrap items-center justify-center bg-gray-900 border-t border-gray-800">
           <Footer/>
         </footer>
       </body>
