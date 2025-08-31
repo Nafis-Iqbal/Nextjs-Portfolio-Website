@@ -15,7 +15,22 @@ const Navbar: React.FC = () => {
 
     const onMenuNavigate = (navigateTo: string) => {
         setIsMenuOpen(false);
+        smoothScrollToSection(navigateTo);
     }
+
+    const smoothScrollToSection = (sectionId: string) => {
+        const element = document.querySelector(sectionId);
+        if (element) {
+            const navbarHeight = 80; // Height of the fixed navbar
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - navbarHeight;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
 
     return (
         <div 
@@ -68,73 +83,71 @@ const Navbar: React.FC = () => {
                             animate={{ opacity: 1, y: "5%", x: "10%" }}
                             exit={{ opacity: 0, y: "-100%", x: "10%" }}
                         >
-                            <a 
-                                className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors border-b border-gray-700" 
-                                href="#hero" 
+                            <button 
+                                className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors border-b border-gray-700 text-left w-full" 
                                 onClick={() => onMenuNavigate("#hero")}
                             >
                                 Home
-                            </a>
-                            <a 
-                                className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors border-b border-gray-700" 
-                                href="#experience" 
+                            </button>
+                            <button 
+                                className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors border-b border-gray-700 text-left w-full" 
                                 onClick={() => onMenuNavigate("#experience")}
                             >
                                 Experience
-                            </a>
-                            <a 
-                                className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors border-b border-gray-700" 
-                                href="#projects" 
+                            </button>
+                            <button 
+                                className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors border-b border-gray-700 text-left w-full" 
                                 onClick={() => onMenuNavigate("#projects")}
                             >
                                 Projects
-                            </a>
-                            <a 
-                                className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors border-b border-gray-700" 
-                                href="#skills" 
+                            </button>
+                            <button 
+                                className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors border-b border-gray-700 text-left w-full" 
                                 onClick={() => onMenuNavigate("#skills")}
                             >
                                 Skills
-                            </a>
-                            <a 
-                                className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors" 
-                                href="#interests" 
+                            </button>
+                            <button 
+                                className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors text-left w-full" 
                                 onClick={() => onMenuNavigate("#interests")}
                             >
                                 Future Plans
-                            </a> 
+                            </button> 
                         </motion.div>         
                     )}
                 </AnimatePresence>
 
                 <div className="hidden md:flex space-x-15 items-center text-2xl text-white">
-                    <a 
-                        className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110" 
-                        href="#hero"
+                    <button 
+                        className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110 cursor-pointer" 
+                        onClick={() => smoothScrollToSection("#hero")}
                     >
                         <FaHome/>
-                    </a>
-                    <a 
-                        className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110" 
-                        href="#experience"
+                    </button>
+                    <button 
+                        className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110 cursor-pointer" 
+                        onClick={() => smoothScrollToSection("#experience")}
                     >
                         <FaBriefcase/>
-                    </a>
-                    <a className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110" 
-                        href="#projects"
+                    </button>
+                    <button 
+                        className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110 cursor-pointer" 
+                        onClick={() => smoothScrollToSection("#projects")}
                     >
                         <FaLaptopCode/>
-                    </a>
-                    <a className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110" 
-                        href="#skills"
+                    </button>
+                    <button 
+                        className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110 cursor-pointer" 
+                        onClick={() => smoothScrollToSection("#skills")}
                     >
                         <FaTools/>
-                    </a>
-                    <a className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110" 
-                        href="#interests"
+                    </button>
+                    <button 
+                        className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110 cursor-pointer" 
+                        onClick={() => smoothScrollToSection("#interests")}
                     >
                         <FaRegLightbulb/>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>

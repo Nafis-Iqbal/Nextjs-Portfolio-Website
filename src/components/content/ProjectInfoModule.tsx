@@ -3,19 +3,21 @@
 import { Eye, ExternalLink } from "lucide-react";
 
 import BasicButton from "@/components/structural-elements/Buttons";
+import { ReactNode } from "react";
 
 interface projectInfoProp {
     projectTitle: string;
     projectCategory: string;
     techStacksUsed: string;
+    projectImageURLs?: string[];
     projectLink?: string;
+    projectVideoLink?: string;
     projectStatus: string; 
-    briefDescription: string;
-    detailDescriptionLink: string;
+    briefDescription: ReactNode;
     onDetailsClick?: () => void;
 }
 
-const ProjectInfoModule = ({projectTitle, projectCategory, techStacksUsed, projectLink, projectStatus, briefDescription, detailDescriptionLink, onDetailsClick} : projectInfoProp) => {
+const ProjectInfoModule = ({projectTitle, projectCategory, techStacksUsed, projectLink, projectVideoLink, projectStatus, briefDescription, onDetailsClick} : projectInfoProp) => {
     const onDetailDescriptionClicked = () => {
         if (onDetailsClick) {
             onDetailsClick();
@@ -23,7 +25,7 @@ const ProjectInfoModule = ({projectTitle, projectCategory, techStacksUsed, proje
     }
 
     const getStatusColor = (status: string) => {
-        if (status.toLowerCase().includes('ready')) {
+        if (status.toLowerCase().includes('production') || status.toLowerCase().includes('user ready')) {
             return 'text-emerald-400 border-emerald-400';
         } else if (status.toLowerCase().includes('development')) {
             return 'text-yellow-400 border-yellow-400';
@@ -40,8 +42,8 @@ const ProjectInfoModule = ({projectTitle, projectCategory, techStacksUsed, proje
             <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                     <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-xl md:text-2xl font-bold text-emerald-400" style={{fontFamily: 'var(--font-fredericka)'}}>
+                        <div className="flex flex-wrap items-center gap-3 mb-2">
+                            <h3 className="text-2xl font-bold text-emerald-400" style={{fontFamily: 'var(--font-fredericka)'}}>
                                 {projectTitle}
                             </h3>
                             <span className={`px-3 py-1 text-xs font-semibold rounded-full border ${getStatusColor(projectStatus)}`}>
@@ -71,15 +73,15 @@ const ProjectInfoModule = ({projectTitle, projectCategory, techStacksUsed, proje
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap gap-3">
-                    {projectLink && (
+                    {(projectLink || projectVideoLink) && (
                         <a 
-                            href={projectLink} 
+                            href={projectLink || projectVideoLink} 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:scale-105"
                         >
                             <ExternalLink size={16} />
-                            Live Demo
+                            {projectLink ? " Live Demo" : " Watch Video"}
                         </a>
                     )}
                     

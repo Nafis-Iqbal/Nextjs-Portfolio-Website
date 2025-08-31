@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { ChevronDown, Code, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -10,15 +10,17 @@ import BasicButton from "@/components/structural-elements/Buttons";
 interface skillInfoProp {
     skillTitle: string;
     skillCategory: string;
+    level?: "Beginner" | "Intermediate" | "Advanced" | "noob";
     relevantTechsLearned: string;
     currentlyLearning?: string;
-    briefDescription: string;
+    briefDescription: ReactNode;
     backGroundImage?: string;
 }
 
 const SkillInfoModule = ({
     skillTitle, 
     skillCategory, 
+    level = "noob",
     relevantTechsLearned, 
     currentlyLearning, 
     briefDescription,
@@ -75,7 +77,12 @@ const SkillInfoModule = ({
                         <h3 className="text-xl md:text-2xl font-bold text-emerald-400 mb-2" style={{fontFamily: 'var(--font-fredericka)'}}>
                             {skillTitle}
                         </h3>
-                        <p className="text-gray-300 text-lg font-medium mb-3">{skillCategory}</p>
+                        <p className="text-gray-300 text-lg font-medium mb-2">{skillCategory}</p>
+                        <div className="mb-1">
+                            <span className={`px-3 py-1 text-xs rounded-full font-medium ${getLevelStyling(level)}`}>
+                                {level}
+                            </span>
+                        </div>
                     </div>
 
                     <BasicButton 
@@ -159,3 +166,17 @@ const SkillInfoModule = ({
 }
 
 export default SkillInfoModule;
+
+// Helper function to get level styling classes
+const getLevelStyling = (level: "Beginner" | "Intermediate" | "Advanced" | "noob"): string => {
+    switch (level) {
+        case 'Beginner':
+            return 'bg-yellow-900/30 text-yellow-300 border border-yellow-700/50';
+        case 'Intermediate':
+            return 'bg-blue-900/30 text-blue-300 border border-blue-700/50';
+        case 'Advanced':
+            return 'bg-purple-900/30 text-purple-300 border border-purple-700/50';
+        default:
+            return 'bg-gray-900/30 text-gray-300 border border-green-700/50';
+    }
+};

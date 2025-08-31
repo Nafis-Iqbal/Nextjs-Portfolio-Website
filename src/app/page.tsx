@@ -9,22 +9,23 @@ const imageList = [
   {
     imageURL: "/CoverPhotos/IMG1.jpeg",
     imageAlt: "Nafis with a jacket",
-    imageText: "Nafis with a jacket - suited up and ready to code the future! 💼✨",
+    imageText: <p>Hello there!😄👨‍💻 <br/><br/> I&apos;m Nafis!</p>,
   },
   {
-    imageURL: "/CoverPhotos/IMG2.jpg",
+    imageURL: "/CoverPhotos/FoTCover.jpg",
     imageAlt: "Nafis laughing",
-    imageText: "Nafis laughing out loud - because debugging finally worked! 😂🚀",
+    imageText: <p>Fables of Time...<br/><br/> The game I hope to finish before I forget how to code 🎮🕰️🥴</p>,
   },
   {
-    imageURL: "/CoverPhotos/IMG3.jpg",
+    imageURL: "/CoverPhotos/WebDevImage.PNG",
     imageAlt: "Coding at night",
-    imageText: "Late night coding session - fueled by coffee and ambition ☕🌙",
+    imageText: <p>Late night coding session ...<br/><br/>fueled by coffee and ambition ☕🌙</p>,
   },
   {
-    imageURL: "/CoverPhotos/IMG4.jpg",
-    imageAlt: "Team brainstorming",
-    imageText: "Team brainstorming - ideas flowing and creativity unleashed! 💡🤝",
+    imageURL: "/CoverPhotos/LifePerahin.jpg",
+    imageAlt: "Bonding with Nature",
+    imageText: <p>Bonding with nature 🌳🦌...<br/><br/>A pause between endless deadlines ⏳💻</p>,
+    imageStyle: "object-contain",
   },
 ];
 

@@ -16,16 +16,50 @@ const SPRING_CONFIG = {
 
 const plansData = [
     {
-        interestTitle: "Deep Learning, LLMs(Large Language Models)",
+        interestTitle: "Deep Learning, LLMs, RAGs",
         interestCategory: "Machine Learning, Artificial Intelligence.",
-        briefDescription: "Machine Learning isn't just the future - it's the present that's already reshaping everything! 🤖 Ever since ChatGPT dropped and started flipping job markets like pancakes, there's no denying that AI is the new electricity. Every business is going AI-crazy, and massive hiring in the AI sector proves it's not just hype - it's the real deal. This isn't just a skill anymore; it's the superpower every tech enthusiast needs to level up their game!",
-        detailDescriptionLink: "Had a great time!"
+        description: <>
+            <p className="mb-4">
+                I am focused on developing expertise in creating <span className="text-emerald-400 font-medium">custom AI solutions</span> that address specific business 
+                challenges through targeted model development and optimization.
+            </p>
+            <p className="mb-4">
+                My primary interest lies in <span className="text-blue-400 font-medium">fine-tuning large language models</span> and implementing 
+                <span className="text-purple-400 font-medium">Retrieval-Augmented Generation (RAG)</span> systems to create domain-specific AI applications that deliver 
+                measurable business value.
+            </p>
+            <p className="mb-4">
+                The goal is to bridge the gap between general-purpose AI capabilities and specialized business requirements by developing <span className="text-yellow-400 font-medium">
+                intelligent systems</span> that can understand context, process domain-specific data, and provide actionable insights for decision-making processes.
+            </p>
+            <p>
+                This approach involves working with vector databases, embedding techniques, and advanced prompt engineering to create AI solutions that are both technically 
+                robust and commercially viable for solving real-world operational challenges.
+            </p>
+        </>,
     },
     {
-        interestTitle: "A multiplayer FPS shooter MVP project to raise funding.",
+        interestTitle: "A 3d multiplayer FPS shooter MVP.",
         interestCategory: "Video Game Industry.",
-        briefDescription: "Gaming isn't just my passion - it's my calling! 🎮 I've got this wild dream of building my own Game Studio and creating the FPS experience that gamers have been waiting for. Picture this: a multiplayer FPS shooter crafted with pure love, sweat, and countless hours of 'just one more match' research. It's not just about making a game; it's about creating a world where FPS legends are born!",
-        detailDescriptionLink: "Had a great time!"
+        description: <>
+            <p className="mb-4">
+                I have been playing first person shooter games for a long time, and am a big fan of military shooter franchises like Call of Duty, Battlefield etc. I also love
+                sci fi genre in movies, books, and games. One game that managed to combine both these elements and left a lasting impression on me is Titanfall 2. The fast paced
+                 movement mechanics, the fluid gunplay, & the futuristic yet grounded settings really inspired me to create something similar.
+            </p>
+            <p className="mb-4">
+                I&apos;ve already worked on a 2d multiplayer shooter game that used Photon PUN for multiplayer and Unity. But Photon PUN isn&apos;t best suited for making realtime
+                multiplayer games that require server authoritative control and fast responses. Which is why, developing a 3d multiplayer shooter prototype will require me to learn
+                a lot of new things like server authoritative multiplayer architecture, client side prediction, lag compensation etc. I&apos;m planning to use Photon Bolt for this 
+                project, as it&apos;s best suited for making realtime multiplayer games.
+            </p>
+            <p className="mb-4">
+                I also plan on using and integrating various AI tools in the development pipeline to speed up the process. For example, using AI art generators like Midjourney to create 
+                concept art, using MeshyAI to create 3d models, using AI code assistants like GitHub Copilot to speed up coding. I&apos;m definitely not going to do all the tasks myself,
+                cause that would be impossibly hard. But the dawn of AI tools has made it possible for small teams and solo developers to create high quality content in a short amount 
+                of time, for which I am giving it a shot.
+            </p>
+        </>,
     }
 ];
 

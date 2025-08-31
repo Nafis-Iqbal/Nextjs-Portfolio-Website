@@ -18,41 +18,64 @@ const SPRING_CONFIG = {
 // Hardcoded project data array
 const projectsData = [
     {
-        projectTitle: "Interactive Task Manager",
-        projectCategory: "Task Management Website",
-        techStacksUsed: "React, Laravel, MySQL. (Full Stack)",
-        projectLink: "https://taskmanagerdemo.vercel.app/",
-        projectStatus: "Occasionally Updated. User Ready.",
-        briefDescription: "The ultimate productivity powerhouse! 🚀 Create tasks that actually get done, organize projects like a boss, and throw in notes, pictures, and todo lists that keep you on track. It's like having a personal assistant, but cooler.",
-        detailDescriptionLink: ""
+        projectTitle: "Suit Up! E-Commerce",
+        projectCategory: "Multi Vendor, E-Commerce Website",
+        techStacksUsed: "NextJS, Prisma, MongoDB, Typescript, Tailwindcss, Framer-motion, zod, Full Stack",
+        projectLink: "https://nextjs-e-commerce-site-nine.vercel.app/",
+        projectStatus: "Production Ready.",
+        briefDescription: <p>A multi vendor e-commerce platform for seamless shopping experiences. Clear and separate user roles for buyers and sellers, with 
+                            feature rich admin dashboards.</p>,
+        projectImageList: []
     },
     {
         projectTitle: "Stuff Trading Marketplace",
         projectCategory: "Hybrid E-Commerce Website",
-        techStacksUsed: "React, Express, NodeJS, MySQL. (Full Stack)",
+        techStacksUsed: "React, Express, NodeJS, Sequelize, MySQL, Typescript, Tailwindcss, Framer-motion, express-validators, Full Stack",
         projectLink: "https://react-stuff-trading-site.vercel.app/",
-        projectStatus: "Occasionally Updated. User Ready.",
-        briefDescription: "Your stuff deserves a second life! ✨ This marketplace lets you trade treasures, auction items, and discover hidden gems. Create killer sell posts, place strategic bids, seal the deal with trades, and build your reputation with ratings. It's eBay's trendy younger sibling!",
-        detailDescriptionLink: ""
+        projectStatus: "User Ready.",
+        briefDescription: <p>A marketplace that lets you trade treasures, auction items, and discover hidden gems. Create sell posts, place strategic bids, seal trades, 
+                        and build your reputation with ratings.</p>,
+        projectImageList: []
     },
     {
-        projectTitle: "AI Chat Assistant",
-        projectCategory: "Machine Learning Application",
-        techStacksUsed: "Python, FastAPI, OpenAI, React. (Full Stack)",
-        projectLink: "https://ai-chat-demo.vercel.app/",
+        projectTitle: "Interactive Task Manager",
+        projectCategory: "Task Management Website",
+        techStacksUsed: "React, Laravel, Eloquent ORM, MySQL, Typescript, Tailwindcss, Framer-motion, Full Stack",
+        projectLink: "https://taskmanagerdemo.vercel.app/",
+        projectStatus: "User Ready.",
+        briefDescription: <p>A very basic task manager app to test out and demonstrate the power of react and laravel. Create tasks, organize projects, and throw in notes, 
+                        pictures, and todo lists that keep you on track.</p>,
+        projectImageList: []
+    },
+    {
+        projectTitle: "Fables of Time",
+        projectCategory: "2d Platformer Action-Adventure RPG Video Game",
+        techStacksUsed: "Unity Engine, C#, Spine2D",
+        projectVideoLink: "https://ai-chat-demo.vercel.app/",
         projectStatus: "In Development. Beta Ready.",
-        briefDescription: "Meet your new AI buddy! 🤖 This intelligent chat assistant understands context, learns from conversations, and provides helpful responses. Built with cutting-edge AI technology for seamless human-computer interaction.",
-        detailDescriptionLink: ""
+        briefDescription: <p>A 2D platformer game with unique, time manipulation mechanics, souls-like combat, and smaller scale metroidvania elements. Big in scope and scale</p>,
+        projectImageList: []
+    },
+    {
+        projectTitle: "Mini Titanfall 2D",
+        projectCategory: "2d Platformer Multiplayer Shooter Video Game",
+        techStacksUsed: "Unity Engine, C#, Adobe Illustrator, Spine2D",
+        projectVideoLink: "https://ai-chat-demo.vercel.app/",
+        projectStatus: "In Development. Beta Ready.",
+        briefDescription: <p>A 2D platformer, multiplayer shooter game, similar in mechanics to Mini Militia, but with some unique gameplay elements inspired by Titanfall series. 
+                            In addition to controlling a jetpack equipped soldier, players are able to call in and control mechs on the battlefield, and gain an upper hand.</p>,
+        projectImageList: []
     },
     {
         projectTitle: "Portfolio Website",
         projectCategory: "Personal Portfolio",
-        techStacksUsed: "Next.js, TypeScript, Tailwind CSS, Framer Motion. (Frontend)",
+        techStacksUsed: "Next.js, TypeScript, Tailwind CSS, Framer Motion, Frontend",
         projectLink: "#",
         projectStatus: "Live. Continuously Updated.",
-        briefDescription: "You're looking at it! 🎨 A modern, animated portfolio showcasing my work with smooth animations, responsive design, and interactive features. Built with the latest web technologies for optimal performance and user experience.",
-        detailDescriptionLink: ""
-    }
+        briefDescription: <p>You are looking at it! 🎨 A modern, animated portfolio showcasing my work with smooth animations, responsive design, and interactive features. 
+                        Built with the latest web technologies for optimal performance and user experience.</p>,
+        projectImageList: []
+    },
 ];
 
 const ProjectLinks = () => {
@@ -139,9 +162,9 @@ const ProjectLinks = () => {
                                                     projectCategory={project.projectCategory}
                                                     techStacksUsed={project.techStacksUsed}
                                                     projectLink={project.projectLink}
+                                                    projectVideoLink={project.projectVideoLink}
                                                     projectStatus={project.projectStatus}
                                                     briefDescription={project.briefDescription}
-                                                    detailDescriptionLink={project.detailDescriptionLink}
                                                     onDetailsClick={() => toggleProjectDetails(projectIndex)}
                                                 />
                                             </motion.div>
@@ -158,12 +181,9 @@ const ProjectLinks = () => {
                                                     >
                                                         <ProjectDetailModule
                                                             projectTitle={project.projectTitle}
-                                                            projectCategory={project.projectCategory}
-                                                            techStacksUsed={project.techStacksUsed}
                                                             projectLink={project.projectLink}
-                                                            projectStatus={project.projectStatus}
                                                             briefDescription={project.briefDescription}
-                                                            detailDescriptionLink={project.detailDescriptionLink}
+                                                            projectImageList={projectsData[expandedProjectIndex]?.projectImageList ?? []}
                                                             onClose={() => setExpandedProjectIndex(null)}
                                                         />
                                                     </motion.div>
@@ -187,12 +207,9 @@ const ProjectLinks = () => {
                                     >
                                         <ProjectDetailModule
                                             projectTitle={projectsData[expandedProjectIndex].projectTitle}
-                                            projectCategory={projectsData[expandedProjectIndex].projectCategory}
-                                            techStacksUsed={projectsData[expandedProjectIndex].techStacksUsed}
                                             projectLink={projectsData[expandedProjectIndex].projectLink}
-                                            projectStatus={projectsData[expandedProjectIndex].projectStatus}
                                             briefDescription={projectsData[expandedProjectIndex].briefDescription}
-                                            detailDescriptionLink={projectsData[expandedProjectIndex].detailDescriptionLink}
+                                            projectImageList={projectsData[expandedProjectIndex]?.projectImageList ?? []}
                                             onClose={() => setExpandedProjectIndex(null)}
                                         />
                                     </motion.div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,16 +9,43 @@ import BasicButton from "@/components/structural-elements/Buttons";
 interface interestsInfoProp {
     interestTitle: string;
     interestCategory: string;
-    briefDescription: string;
-    detailDescriptionLink: string;
+    description: ReactNode;
 }
 
-const PlansInfoModule = ({interestTitle, interestCategory, briefDescription, detailDescriptionLink} : interestsInfoProp) => {
+const PlansInfoModule = ({interestTitle, interestCategory, description} : interestsInfoProp) => {
     const [isInfoExpanded, setIsInfoExpanded] = useState<boolean>(false);
 
     const onDropDownClicked = () => {
         setIsInfoExpanded(!isInfoExpanded);
     }
+
+    // Extract text content from ReactNode for preview
+    const getTextContent = (node: ReactNode): string => {
+        if (typeof node === 'string') return node;
+        if (typeof node === 'number') return node.toString();
+        if (React.isValidElement(node)) {
+            const element = node as React.ReactElement<{children?: ReactNode}>;
+            return React.Children.toArray(element.props.children)
+                .map(child => getTextContent(child))
+                .join('');
+        }
+        if (Array.isArray(node)) {
+            return node.map(child => getTextContent(child)).join('');
+        }
+        return '';
+    };
+
+    // Create brief preview (first 2 sentences or 150 characters, whichever is shorter)
+    const getBriefPreview = (node: ReactNode) => {
+        const text = getTextContent(node);
+        const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+        if (sentences.length >= 2) {
+            return sentences.slice(0, 2).join('. ') + '.';
+        }
+        return text.length > 150 ? text.substring(0, 150) + '...' : text;
+    };
+
+    const briefPreview = getBriefPreview(description);
 
     return (
         <div 
@@ -50,33 +77,20 @@ const PlansInfoModule = ({interestTitle, interestCategory, briefDescription, det
                 </BasicButton>
             </div>
 
-            {/* Description Preview */}
-            <p className="text-gray-300 leading-relaxed mb-4">
-                {briefDescription.substring(0, 150)}...
-            </p>
-
-            {/* Expandable Full Description */}
-            <AnimatePresence>
-                {isInfoExpanded && (
-                    <motion.div 
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ 
-                            duration: 0.3, 
-                            ease: "easeInOut",
-                            opacity: { duration: 0.2 }
-                        }}
-                        className="overflow-hidden"
+            {/* Description */}
+            <div className="text-gray-300 leading-relaxed">
+                {isInfoExpanded ? (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
                     >
-                        <div className="border-t border-gray-700 pt-4">
-                            <p className="text-gray-300 leading-relaxed">
-                                {briefDescription}
-                            </p>
-                        </div>
+                        {description}
                     </motion.div>
+                ) : (
+                    <p>{briefPreview} <span className="text-emerald-500 font-semibold cursor-pointer">Read more...</span></p>
                 )}
-            </AnimatePresence>
+            </div>
         </div>
     );
 }

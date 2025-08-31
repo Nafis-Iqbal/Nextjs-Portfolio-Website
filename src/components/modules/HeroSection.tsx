@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { NextImage } from "../structural-elements/UIUtilities";
@@ -8,19 +8,49 @@ import { NextImage } from "../structural-elements/UIUtilities";
 interface ImageProps {
     imageURL: string;
     imageAlt?: string;
-    imageText?: string;
+    imageText?: ReactNode;
+    imageStyle?: string;
 }
 
 export const HeroSection = ({ className, imageList }: { imageList: ImageProps[], className?: string }) => {
+    // Auto-rotation delay in milliseconds - configurable variable
+    const AUTO_ROTATION_DELAY = 7000; // 5 seconds
+    
     const [imageURLsList, setImageURLsList] = useState<ImageProps[]>(imageList);
     const [displayedImageId, setDisplayedImageId] = useState<number>(0);
     const [direction, setDirection] = useState<"next" | "prev">("next");
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+    const resetAutoRotationTimer = useCallback(() => {
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+        }
+        
+        intervalRef.current = setInterval(() => {
+            setDisplayedImageId(prevId => {
+                const nextId = prevId === imageList.length - 1 ? 0 : prevId + 1;
+                setDirection(prevId === imageList.length - 1 ? "next" : "next");
+                return nextId;
+            });
+        }, AUTO_ROTATION_DELAY);
+    }, [imageList.length, AUTO_ROTATION_DELAY]);
+
+    useEffect(() => {
+        resetAutoRotationTimer();
+        
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+            }
+        };
+    }, [resetAutoRotationTimer]);
 
     const showPreviousImage = () => {
         if (displayedImageId > 0) {
             setDirection("prev");
             setDisplayedImageId(displayedImageId - 1);
         }
+        resetAutoRotationTimer(); 
     };
 
     const showNextImage = () => {
@@ -28,14 +58,13 @@ export const HeroSection = ({ className, imageList }: { imageList: ImageProps[],
             setDirection("next");
             setDisplayedImageId(displayedImageId + 1);
         }
+        resetAutoRotationTimer(); 
     };
         
     useEffect(() => {
         setImageURLsList(imageList);
-        console.log(imageList);
     }, [imageList]);
 
-    // Animation variants
     const variants = {
         enter: (direction: "next" | "prev") => ({
             x: direction === "next" ? 300 : -300,
@@ -77,7 +106,7 @@ export const HeroSection = ({ className, imageList }: { imageList: ImageProps[],
 
                             <NextImage
                                 className="w-full h-full"
-                                nextImageClassName="object-cover object-top" 
+                                nextImageClassName={imageURLsList[displayedImageId]?.imageStyle ?? `object-cover object-top`} 
                                 src={imageURLsList[displayedImageId]?.imageURL ?? "/CPUPIC.webp"} 
                                 alt={imageURLsList[displayedImageId]?.imageAlt ?? "Some stuff about the pic."}
                             />
@@ -121,6 +150,7 @@ export const HeroSection = ({ className, imageList }: { imageList: ImageProps[],
                             onClick={() => {
                                 setDirection(index > displayedImageId ? "next" : "prev");
                                 setDisplayedImageId(index);
+                                resetAutoRotationTimer(); // Reset timer when user clicks dot
                             }}
                         />
                     ))}
