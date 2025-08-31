@@ -9,29 +9,37 @@ const imageList = [
   {
     imageURL: "/CoverPhotos/IMG1.jpeg",
     imageAlt: "Nafis with a jacket",
-    imageText: <p>Hello there!😄👨‍💻 <br/><br/> I&apos;m Nafis!</p>,
+    imageText: <>
+      <p>Hello there!😄👨‍💻 <br/><br/> I&apos;m Nafis!</p>
+    </>,
   },
   {
     imageURL: "/CoverPhotos/FoTCover.jpg",
     imageAlt: "Nafis laughing",
-    imageText: <p>Fables of Time...<br/><br/> The game I hope to finish before I forget how to code 🎮🕰️🥴</p>,
+    imageText: <>
+      <p>Fables of Time...<br/><br/> The game I hope to finish before I forget how to code 🎮🕰️🥴</p>
+    </>,
   },
   {
     imageURL: "/CoverPhotos/WebDevImage.PNG",
     imageAlt: "Coding at night",
-    imageText: <p>Late night coding session ...<br/><br/>fueled by coffee and ambition ☕🌙</p>,
+    imageText: <>
+      <p>Late night coding session ...<br/><br/>fueled by coffee and ambition ☕🌙</p>
+    </>,
   },
   {
     imageURL: "/CoverPhotos/LifePerahin.jpg",
     imageAlt: "Bonding with Nature",
-    imageText: <p>Bonding with nature 🌳🦌...<br/><br/>A pause between endless deadlines ⏳💻</p>,
+    imageText: <>
+      <p>Bonding with nature 🌳🦌...<br/><br/>A pause between endless deadlines ⏳💻</p>
+    </>,
     imageStyle: "object-contain",
   },
 ];
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col justify-center w-full">
+    <main className="flex flex-col justify-center w-full overflow-x-hidden">
       <HeroSection
         className="h-[60vh] mt-20"
         imageList={imageList}

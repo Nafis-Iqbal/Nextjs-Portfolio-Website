@@ -23,8 +23,11 @@ const projectsData = [
         techStacksUsed: "NextJS, Prisma, MongoDB, Typescript, Tailwindcss, Framer-motion, zod, Full Stack",
         projectLink: "https://nextjs-e-commerce-site-nine.vercel.app/",
         projectStatus: "Production Ready.",
-        briefDescription: <p>A multi vendor e-commerce platform for seamless shopping experiences. Clear and separate user roles for buyers and sellers, with 
-                            feature rich admin dashboards.</p>,
+        briefDescription: <>
+                <p>A multi vendor e-commerce platform for seamless shopping experiences. Clear and separate user roles for buyers and sellers, with 
+                        feature rich admin dashboards.
+                </p>
+        </>,
         projectImageList: []
     },
     {
@@ -33,8 +36,11 @@ const projectsData = [
         techStacksUsed: "React, Express, NodeJS, Sequelize, MySQL, Typescript, Tailwindcss, Framer-motion, express-validators, Full Stack",
         projectLink: "https://react-stuff-trading-site.vercel.app/",
         projectStatus: "User Ready.",
-        briefDescription: <p>A marketplace that lets you trade treasures, auction items, and discover hidden gems. Create sell posts, place strategic bids, seal trades, 
-                        and build your reputation with ratings.</p>,
+        briefDescription: <>
+                <p>A marketplace that lets you trade treasures, auction items, and discover hidden gems. Create sell posts, place strategic bids, seal trades, 
+                        and build your reputation with ratings.
+                </p>
+        </>,
         projectImageList: []
     },
     {
@@ -43,8 +49,10 @@ const projectsData = [
         techStacksUsed: "React, Laravel, Eloquent ORM, MySQL, Typescript, Tailwindcss, Framer-motion, Full Stack",
         projectLink: "https://taskmanagerdemo.vercel.app/",
         projectStatus: "User Ready.",
-        briefDescription: <p>A very basic task manager app to test out and demonstrate the power of react and laravel. Create tasks, organize projects, and throw in notes, 
-                        pictures, and todo lists that keep you on track.</p>,
+        briefDescription: <>
+                <p>A very basic task manager app to test out and demonstrate the power of react and laravel. Create tasks, organize projects, and throw in notes, 
+                        pictures, and todo lists that keep you on track.</p>
+        </>,
         projectImageList: []
     },
     {
@@ -53,7 +61,9 @@ const projectsData = [
         techStacksUsed: "Unity Engine, C#, Spine2D",
         projectVideoLink: "https://ai-chat-demo.vercel.app/",
         projectStatus: "In Development. Beta Ready.",
-        briefDescription: <p>A 2D platformer game with unique, time manipulation mechanics, souls-like combat, and smaller scale metroidvania elements. Big in scope and scale</p>,
+        briefDescription: <>
+                <p>A 2D platformer game with unique, time manipulation mechanics, souls-like combat, and smaller scale metroidvania elements. Big in scope and scale</p>
+        </>,
         projectImageList: []
     },
     {
@@ -62,8 +72,10 @@ const projectsData = [
         techStacksUsed: "Unity Engine, C#, Adobe Illustrator, Spine2D",
         projectVideoLink: "https://ai-chat-demo.vercel.app/",
         projectStatus: "In Development. Beta Ready.",
-        briefDescription: <p>A 2D platformer, multiplayer shooter game, similar in mechanics to Mini Militia, but with some unique gameplay elements inspired by Titanfall series. 
-                            In addition to controlling a jetpack equipped soldier, players are able to call in and control mechs on the battlefield, and gain an upper hand.</p>,
+        briefDescription: <>
+                <p>A 2D platformer, multiplayer shooter game, similar in mechanics to Mini Militia, but with some unique gameplay elements inspired by Titanfall series. 
+                            In addition to controlling a jetpack equipped soldier, players are able to call in and control mechs on the battlefield, and gain an upper hand.</p>
+        </>,
         projectImageList: []
     },
     {
@@ -72,8 +84,10 @@ const projectsData = [
         techStacksUsed: "Next.js, TypeScript, Tailwind CSS, Framer Motion, Frontend",
         projectLink: "#",
         projectStatus: "Live. Continuously Updated.",
-        briefDescription: <p>You are looking at it! 🎨 A modern, animated portfolio showcasing my work with smooth animations, responsive design, and interactive features. 
-                        Built with the latest web technologies for optimal performance and user experience.</p>,
+        briefDescription: <>
+                <p>You are looking at it! 🎨 A modern, animated portfolio showcasing my work with smooth animations, responsive design, and interactive features. 
+                        Built with the latest web technologies for optimal performance and user experience.</p>
+        </>,
         projectImageList: []
     },
 ];

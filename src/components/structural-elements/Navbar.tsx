@@ -5,6 +5,7 @@ import { Github, Linkedin, Menu, X } from "lucide-react";
 import BasicButton from "./Buttons";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBriefcase, FaHome, FaLaptopCode, FaRegLightbulb, FaTools } from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
 
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,6 +61,16 @@ const Navbar: React.FC = () => {
                         <Linkedin size={24} />
                     </a>
 
+                    <a
+                        href="https://www.upwork.com/freelancers/~011e44814053248964"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden md:block p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110"
+                        aria-label="Upwork Profile"
+                    >
+                        <SiUpwork size={24} />
+                    </a>
+
                     <div className="text-2xl md:text-3xl font-bold text-emerald-400">
                         Nafis Iqbal
                     </div>
@@ -83,6 +94,37 @@ const Navbar: React.FC = () => {
                             animate={{ opacity: 1, y: "5%", x: "10%" }}
                             exit={{ opacity: 0, y: "-100%", x: "10%" }}
                         >
+                            <div className="flex space-x-2 text-white hover:bg-emerald-600 transition-colors border-b">
+                                <a
+                                    href="https://github.com/Nafis-Iqbal"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110"
+                                    aria-label="GitHub Profile"
+                                >
+                                    <Github size={24} />
+                                </a>
+
+                                <a
+                                    href="https://www.linkedin.com/in/nafis-iqbal-79b645213/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110"
+                                    aria-label="LinkedIn Profile"
+                                >
+                                    <Linkedin size={24} />
+                                </a>
+
+                                <a
+                                    href="https://www.upwork.com/freelancers/~011e44814053248964"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110"
+                                    aria-label="Upwork Profile"
+                                >
+                                    <SiUpwork size={24} />
+                                </a>
+                            </div>
                             <button 
                                 className="px-4 py-3 text-white hover:bg-emerald-600 transition-colors border-b border-gray-700 text-left w-full" 
                                 onClick={() => onMenuNavigate("#hero")}

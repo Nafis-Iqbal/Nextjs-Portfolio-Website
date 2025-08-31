@@ -81,7 +81,7 @@ export const HeroSection = ({ className, imageList }: { imageList: ImageProps[],
     };
 
     return (
-        <div className={`flex flex-col w-full bg-gray-700 ${className ? className : 'h-full'}`}>
+        <div id="hero" className={`flex flex-col w-full bg-gray-700 ${className ? className : 'h-full'}`}>
             <div className="relative flex flex-1 bg-black">
                 <div className="relative w-full h-full">
                     <AnimatePresence custom={direction}>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { SiUpwork } from "react-icons/si";
 
 import DivGap, {HorizontalDivider, VerticalDivider} from "./UIUtilities";
 
@@ -30,6 +31,16 @@ const Footer: React.FC = () => {
                                 aria-label="LinkedIn Profile"
                             >
                                 <Linkedin size={24} />
+                            </a>
+
+                            <a
+                                href="https://www.upwork.com/freelancers/~011e44814053248964"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-3 bg-gray-800 hover:bg-emerald-600 text-white rounded-full transition-all duration-300 hover:scale-110"
+                                aria-label="Upwork Profile"
+                            >
+                                <SiUpwork size={24} />
                             </a>
 
                             <a 
