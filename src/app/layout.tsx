@@ -33,6 +33,31 @@ export const metadata: Metadata = {
   keywords: "Nafis Iqbal, Full Stack Developer, Game Developer, React, Node.js, Unity 3D, Web Development",
   authors: [{ name: "Nafis Iqbal" }],
   viewport: "width=device-width, initial-scale=1",
+  icons: {
+    icon: "/Nicon.PNG",
+    shortcut: "/Nicon.PNG",
+    apple: "/Nicon.PNG",
+  },
+  openGraph: {
+    title: "Nafis Iqbal - Full Stack Developer & Game Developer",
+    description: "Professional portfolio of Nafis Iqbal - Full Stack Developer specializing in React, Node.js, Unity 3D game development, and modern web technologies.",
+    type: "website",
+    url: "https://your-portfolio-site.com",
+    images: [
+      {
+        url: "/Nicon.PNG",
+        width: 1200,
+        height: 630,
+        alt: "Nafis Iqbal Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nafis Iqbal - Full Stack Developer & Game Developer",
+    description: "Professional portfolio of Nafis Iqbal - Full Stack Developer specializing in React, Node.js, Unity 3D game development, and modern web technologies.",
+    images: ["/Nicon.PNG"],
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -54,3 +79,4 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
+
