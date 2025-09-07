@@ -105,14 +105,14 @@ export const HeroSection = ({ className, imageList }: { imageList: ImageProps[],
                             </div>
 
                             <NextImage
-                                className="w-full h-full"
+                                className="w-full h-full min-h-[300px]"
                                 nextImageClassName={imageURLsList[displayedImageId]?.imageStyle ?? `object-cover object-top`} 
                                 src={imageURLsList[displayedImageId]?.imageURL ?? "/CPUPIC.webp"} 
                                 alt={imageURLsList[displayedImageId]?.imageAlt ?? "Some stuff about the pic."}
                             />
 
-                            <div className="flex justify-center items-center mb-10 md:m-0 md:hidden w-full h-[25%] bg-black/50">
-                                <p className="text-2xl md:text-3xl text-white w-[85%] h-[85%] flex items-center" style={{fontFamily: 'var(--font-fredericka)'}}>
+                            <div className="flex justify-center items-center mb-10 md:m-0 md:hidden w-full bg-black/50">
+                                <p className="text-xl md:text-3xl text-white w-[85%] h-[85%] flex items-center" style={{fontFamily: 'var(--font-fredericka)'}}>
                                     {imageURLsList[displayedImageId]?.imageText}
                                 </p>
                             </div>
