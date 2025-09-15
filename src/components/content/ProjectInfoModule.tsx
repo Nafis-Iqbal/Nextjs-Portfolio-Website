@@ -52,7 +52,7 @@ const ProjectInfoModule = ({projectTitle, projectCategory, techStacksUsed, proje
                         </div>
                         
                         <p className="text-gray-300 text-lg font-medium mb-3">{projectCategory}</p>
-                        <p className="text-gray-400 leading-relaxed mb-4">{briefDescription}</p>
+                        <div className="text-gray-400 leading-relaxed mb-4">{briefDescription}</div>
                     </div>
                 </div>
 

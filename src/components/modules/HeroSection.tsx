@@ -99,9 +99,9 @@ export const HeroSection = ({ className, imageList }: { imageList: ImageProps[],
                             className="absolute w-full h-full flex flex-col md:flex-row"
                         >
                             <div className="hidden md:flex justify-center items-center h-full w-[40%] px-8">
-                                <p className="text-4xl md:text-5xl text-white w-[85%] h-[85%] flex items-center" style={{fontFamily: 'var(--font-fredericka)'}}>
+                                <div className="text-4xl md:text-5xl text-white w-[85%] h-[85%] flex items-center" style={{fontFamily: 'var(--font-fredericka)'}}>
                                     {imageURLsList[displayedImageId]?.imageText}
-                                </p>
+                                </div>
                             </div>
 
                             <NextImage
@@ -112,9 +112,9 @@ export const HeroSection = ({ className, imageList }: { imageList: ImageProps[],
                             />
 
                             <div className="flex justify-center items-center mb-10 md:m-0 md:hidden w-full bg-black/50">
-                                <p className="text-xl md:text-3xl text-white w-[85%] h-[85%] flex items-center" style={{fontFamily: 'var(--font-fredericka)'}}>
+                                <div className="text-xl md:text-3xl text-white w-[85%] h-[85%] flex items-center" style={{fontFamily: 'var(--font-fredericka)'}}>
                                     {imageURLsList[displayedImageId]?.imageText}
-                                </p>
+                                </div>
                             </div>
                         </motion.div>
                     </AnimatePresence>

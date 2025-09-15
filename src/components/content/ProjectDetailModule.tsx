@@ -6,7 +6,7 @@ interface ProjectDetailProps {
     projectLink?: string;
     projectVideoLink?: string;
     briefDescription: ReactNode;
-    projectImageList: { imageURL: string; imageAlt?: string; imageStyle?: string }[];
+    projectImageList: { imageURL: string; videoURL?: string; imageAlt?: string; imageStyle?: string }[];
     onClose: () => void;
 }
 
@@ -54,13 +54,17 @@ const ProjectDetailModule = ({
             
             <div className="flex flex-col space-y-5 md:space-y-0 md:flex-row md:space-x-5 flex-1">
                 <div className="w-full md:w-[50%] h-[400px] md:min-h-[400px] md:h-auto">
-                    <ImageViewerModule className="h-full" imageList={projectImageList}/>
+                    <ImageViewerModule 
+                        className="h-full overflow-x-hidden" 
+                        imageList={projectImageList}
+                        imagePlacementStyle="object-left"
+                    />
                 </div>
 
                 <div className="flex flex-col w-full md:w-[50%] gap-4">
                     <div className="bg-gray-800 rounded-lg p-4">
                         <h4 className="text-emerald-400 font-semibold mb-3 text-lg">Description</h4>
-                        <p className="text-gray-300 leading-relaxed">{briefDescription}</p>
+                        <div className="text-gray-300 leading-relaxed">{briefDescription}</div>
                     </div>
 
                     {projectLink && projectLink !== "#" ? (

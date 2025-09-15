@@ -5,6 +5,7 @@ import ProjectDetailModule from "./ProjectDetailModule";
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, AnimatePresence } from "framer-motion";
 import React from "react";
+import { image } from "framer-motion/client";
 
 // Animation configuration
 const ANIMATION_DURATION = 0.6; // Control transition speed here
@@ -28,7 +29,16 @@ const projectsData = [
                         feature rich admin dashboards.
                 </p>
         </>,
-        projectImageList: []
+        projectImageList: [
+            { videoURL: "https://youtu.be/wqwjuImPv20" , imageURL: "", imageAlt: "Suit Up Demo Video"},
+            { imageURL: "/ProjectImages/SuitUp/1HomePage.PNG", imageAlt: "SuitUp Homepage" },
+            { imageURL: "/ProjectImages/SuitUp/2SearchBar.PNG", imageAlt: "SuitUp Search Bar" },
+            { imageURL: "/ProjectImages/SuitUp/3CartUpdate.PNG", imageAlt: "SuitUp Cart Update" },
+            { imageURL: "/ProjectImages/SuitUp/4ProductDetail.PNG", imageAlt: "SuitUp Product Detail" },
+            { imageURL: "/ProjectImages/SuitUp/5ProductDetail2.PNG", imageAlt: "SuitUp Product Detail 2" },
+            { imageURL: "/ProjectImages/SuitUp/6Dashboard.PNG", imageAlt: "SuitUp Dashboard" },
+            { imageURL: "/ProjectImages/SuitUp/7Checkout.PNG", imageAlt: "SuitUp Checkout" }
+        ]
     },
     {
         projectTitle: "Stuff Trading Marketplace",
@@ -41,7 +51,14 @@ const projectsData = [
                         and build your reputation with ratings.
                 </p>
         </>,
-        projectImageList: []
+        projectImageList: [
+            { videoURL: "https://www.youtube.com/embed/csAfqDlW9Xs" , imageURL: "", imageAlt: "Stuff Trader Demo Video"},
+            { imageURL: "/ProjectImages/Stuff-Trader/1Homepage.PNG", imageAlt: "Stuff Trader Homepage" },
+            { imageURL: "/ProjectImages/Stuff-Trader/2ListingDetail.PNG", imageAlt: "Stuff Trader Listing Detail" },
+            { imageURL: "/ProjectImages/Stuff-Trader/3AdminPanel.PNG", imageAlt: "Stuff Trader Admin Panel" },
+            { imageURL: "/ProjectImages/Stuff-Trader/4BidList.PNG", imageAlt: "Stuff Trader Bid List" },
+            { imageURL: "/ProjectImages/Stuff-Trader/5TradeList.PNG", imageAlt: "Stuff Trader Trade List" }
+        ]
     },
     {
         projectTitle: "Interactive Task Manager",
@@ -53,7 +70,13 @@ const projectsData = [
                 <p>A very basic task manager app to test out and demonstrate the power of react and laravel. Create tasks, organize projects, and throw in notes, 
                         pictures, and todo lists that keep you on track.</p>
         </>,
-        projectImageList: []
+        projectImageList: [
+            { videoURL: "https://www.youtube.com/embed/ThHUglJoYyU" , imageURL: "", imageAlt: "Task Manager Demo Video"},
+            { imageURL: "/ProjectImages/Task-Manager/1Homepage.PNG", imageAlt: "Task Manager Homepage" },
+            { imageURL: "/ProjectImages/Task-Manager/2Dashboard.PNG", imageAlt: "Task Manager Dashboard" },
+            { imageURL: "/ProjectImages/Task-Manager/3TaskDetails.PNG", imageAlt: "Task Manager Task Details" },
+            { imageURL: "/ProjectImages/Task-Manager/4TasksList.PNG", imageAlt: "Task Manager Tasks List" }
+        ]
     },
     {
         projectTitle: "Fables of Time",
@@ -64,7 +87,10 @@ const projectsData = [
         briefDescription: <>
                 <p>A 2D platformer game with unique, time manipulation mechanics, souls-like combat, and smaller scale metroidvania elements. Big in scope and scale</p>
         </>,
-        projectImageList: []
+        projectImageList: [
+            // Note: Fables-Of-Time folder is currently empty
+            // Add images here when they become available
+        ]
     },
     {
         projectTitle: "Mini Titanfall 2D",
@@ -76,7 +102,10 @@ const projectsData = [
                 <p>A 2D platformer, multiplayer shooter game, similar in mechanics to Mini Militia, but with some unique gameplay elements inspired by Titanfall series. 
                             In addition to controlling a jetpack equipped soldier, players are able to call in and control mechs on the battlefield, and gain an upper hand.</p>
         </>,
-        projectImageList: []
+        projectImageList: [
+            // Note: Mini-Titanfall folder is currently empty
+            // Add images here when they become available
+        ]
     },
     {
         projectTitle: "Portfolio Website",
@@ -88,7 +117,9 @@ const projectsData = [
                 <p>You are looking at it! 🎨 A modern, animated portfolio showcasing my work with smooth animations, responsive design, and interactive features. 
                         Built with the latest web technologies for optimal performance and user experience.</p>
         </>,
-        projectImageList: []
+        projectImageList: [
+            { imageURL: "/ProjectImages/Portfolio-Site/H1.PNG", imageAlt: "Portfolio Website Screenshot" }
+        ]
     },
 ];
 

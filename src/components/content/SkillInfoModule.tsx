@@ -153,9 +153,9 @@ const SkillInfoModule = ({
                             className="overflow-hidden flex-grow"
                         >
                             <div className="border-t border-gray-700 pt-4">
-                                <p className="text-gray-300 leading-relaxed">
+                                <div className="text-gray-300 leading-relaxed">
                                     {briefDescription}
-                                </p>
+                                </div>
                             </div>
                         </motion.div>
                     )}

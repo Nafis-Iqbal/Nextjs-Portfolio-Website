@@ -7,11 +7,35 @@ import { NextImage } from "../structural-elements/UIUtilities";
 
 interface ImageProps {
     imageURL: string;
+    videoURL?: string;
     imageAlt?: string;
     imageStyle?: string;
 }
 
-export const ImageViewerModule = ({ className, imageList }: { imageList: ImageProps[], className?: string }) => {
+// Helper function to detect and convert YouTube URLs to embed format
+const getYouTubeEmbedUrl = (url: string): string | null => {
+    const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+    const match = url.match(youtubeRegex);
+    if (match && match[1]) {
+        return `https://www.youtube.com/embed/${match[1]}`;
+    }
+    return null;
+};
+
+// Helper function to check if URL is a video (YouTube or other video URLs)
+const isVideoUrl = (url: string): boolean => {
+    return getYouTubeEmbedUrl(url) !== null || url.includes('youtube.com') || url.includes('youtu.be');
+};
+
+export const ImageViewerModule = ({ 
+    className, 
+    imageList, 
+    imagePlacementStyle = "object-top" 
+}: { 
+    imageList: ImageProps[], 
+    className?: string, 
+    imagePlacementStyle?: string 
+}) => {
     const [imageURLsList, setImageURLsList] = useState<ImageProps[]>(imageList);
     const [displayedImageId, setDisplayedImageId] = useState<number>(0);
     const [direction, setDirection] = useState<"next" | "prev">("next");
@@ -69,12 +93,36 @@ export const ImageViewerModule = ({ className, imageList }: { imageList: ImagePr
                                 }}
                                 className="absolute w-full h-full flex flex-col md:flex-row"
                             >
-                                <NextImage
-                                    className="w-full h-full"
-                                    nextImageClassName={imageURLsList[displayedImageId]?.imageStyle ?? `object-cover object-top`} 
-                                    src={imageURLsList[displayedImageId]?.imageURL ?? "/CPUPIC.webp"} 
-                                    alt={imageURLsList[displayedImageId]?.imageAlt ?? "Some stuff about the pic."}
-                                />
+                                {/* Conditionally render iframe for videos or NextImage for images */}
+                                {(() => {
+                                    const currentItem = imageURLsList[displayedImageId];
+                                    const videoUrl = currentItem?.videoURL || currentItem?.imageURL;
+                                    
+                                    // Check if it's a video URL
+                                    if (videoUrl && isVideoUrl(videoUrl)) {
+                                        const embedUrl = getYouTubeEmbedUrl(videoUrl);
+                                        return (
+                                            <iframe
+                                                className="w-full h-full"
+                                                src={embedUrl || videoUrl}
+                                                title={currentItem?.imageAlt || "Video content"}
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                            />
+                                        );
+                                    } else {
+                                        // Render image for non-video content
+                                        return (
+                                            <NextImage
+                                                className="w-full h-full"
+                                                nextImageClassName={currentItem?.imageStyle ?? `object-cover ${imagePlacementStyle}`} 
+                                                src={currentItem?.imageURL ?? "/no-image.jpg"} 
+                                                alt={currentItem?.imageAlt ?? "Some stuff about the pic."}
+                                            />
+                                        );
+                                    }
+                                })()}
                             </motion.div>
                         </AnimatePresence>
 
@@ -97,14 +145,12 @@ export const ImageViewerModule = ({ className, imageList }: { imageList: ImagePr
                     </div>
                 ) : (
                     <div className="relative w-full h-full">
-                        <div
-                            className="absolute w-full h-full flex flex-col md:flex-row"
-                        >
+                        <div className="absolute w-full h-full flex flex-col md:flex-row">
                             <NextImage
                                 className="w-full h-full"
                                 nextImageClassName={`object-cover object-top`} 
                                 src={"/no-image.jpg"} 
-                                alt={imageURLsList[displayedImageId]?.imageAlt ?? "Some stuff about the pic."}
+                                alt={"No content available"}
                             />
                         </div>
                     </div>
